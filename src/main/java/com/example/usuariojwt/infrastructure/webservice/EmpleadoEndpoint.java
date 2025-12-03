@@ -10,16 +10,18 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import java.math.BigDecimal;
+
 @Endpoint
 @AllArgsConstructor
 public class EmpleadoEndpoint {
     
-    private static final String NAMESPACE_URI = "http://www.example.com/empleado-ws";
+    private static final String NAMESPACE_URI = "http://example.com/empleado-ws";
     
     private final EmployeeRepository employeeRepository;
 
     
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "crearEmpleadoRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "createEmployeeRequest")
     @ResponsePayload
     public CreateEmployeeResponse crearEmpleado(@RequestPayload CreateEmployeeRequest request) {
         var empleado = mapToEntity(request.getEmpleado());
@@ -38,7 +40,6 @@ public class EmpleadoEndpoint {
         return createSuccessResponse(empleado, "Empleado creado exitosamente");
     }
     
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "actualizarEmpleadoRequest")
     @ResponsePayload
     public UpdateEmployeeResponse actualizarEmpleado(@RequestPayload UpdateEmployeeRequest request) {
         var empleadoExistente = employeeRepository.findByIdAndDeletedFalse(request.getEmpleado().getId())
@@ -72,7 +73,6 @@ public class EmpleadoEndpoint {
         return response;
     }
     
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "eliminarEmpleadoRequest")
     @ResponsePayload
     public DeleteEmployeeResponse eliminarEmpleado(@RequestPayload DeleteEmployeeRequest request) {
         var empleado = employeeRepository.findByIdAndDeletedFalse(request.getId())
@@ -101,14 +101,14 @@ public class EmpleadoEndpoint {
                 .toLocalDate());
         }
         
-        if (employeeType.getFechaVinculacion() != null) {
-            empleado.setFechaVinculacion(employeeType.getFechaVinculacion().toGregorianCalendar()
+        if (employeeType.getFechaVinculacionCompania() != null) {
+            empleado.setFechaVinculacion(employeeType.getFechaVinculacionCompania().toGregorianCalendar()
                 .toZonedDateTime()
                 .toLocalDate());
         }
         
         empleado.setCargo(employeeType.getCargo());
-        empleado.setSalario(employeeType.getSalario());
+        empleado.setSalario(employeeType.getSalario().doubleValue());
         return empleado;
     }
     
@@ -121,16 +121,16 @@ public class EmpleadoEndpoint {
         empleadoType.setNumeroDocumento(empleado.getNumeroDocumento());
         empleadoType.setFechaNacimiento(javax.xml.datatype.DatatypeFactory.newDefaultInstance()
                 .newXMLGregorianCalendar(empleado.getFechaNacimiento().toString()));
-        empleadoType.setFechaVinculacion(javax.xml.datatype.DatatypeFactory.newDefaultInstance()
+        empleadoType.setFechaVinculacionCompania(javax.xml.datatype.DatatypeFactory.newDefaultInstance()
                 .newXMLGregorianCalendar(empleado.getFechaVinculacion().toString()));
         empleadoType.setCargo(empleado.getCargo());
-        empleadoType.setSalario(empleado.getSalario());
+        empleadoType.setSalario(BigDecimal.valueOf(empleado.getSalario()));
         return empleadoType;
     }
     
     private CreateEmployeeResponse createSuccessResponse(Empleado empleado, String mensaje) {
         var response = new CreateEmployeeResponse();
-        response.setEmpleado(mapToEmpleadoType(empleado));
+        response.setEmpleado(null);
         response.setMensaje(mensaje);
         response.setCodigo("EXITO");
         return response;

@@ -10,7 +10,7 @@ Generado el: 2025.12.02 a las 11:04:55 PM COT
 
   -->
       
-    <bindings xmlns:tns="http://www.example.com/empleado-ws" if-exists="true" scd="x-schema::tns">
+    <bindings xmlns:tns="http://example.com/empleado-ws" if-exists="true" scd="x-schema::tns">
             
         <schemaBindings map="false">
                   

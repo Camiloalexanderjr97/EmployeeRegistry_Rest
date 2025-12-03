@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:tns="http://www.example.com/empleado-ws"
-           targetNamespace="http://www.example.com/empleado-ws"
+           xmlns:tns="http://example.com/empleado-ws"
+           targetNamespace="http://example.com/empleado-ws"
            elementFormDefault="qualified">
 
     <!-- Definición de tipos complejos -->
@@ -34,27 +34,9 @@
     </xs:complexType>
 
     <!-- Definición de elementos raíz -->
-    <xs:element name="crearEmpleadoRequest" type="tns:empleadoRequest"/>
-    <xs:element name="crearEmpleadoResponse" type="tns:empleadoResponse"/>
+    <xs:element name="createEmployeeRequest" type="tns:empleadoRequest"/>
+    <xs:element name="createEmployeeResponse" type="tns:empleadoResponse"/>
     
-    <xs:element name="actualizarEmpleadoRequest" type="tns:empleadoRequest"/>
-    <xs:element name="actualizarEmpleadoResponse" type="tns:empleadoResponse"/>
-    
-    <xs:element name="eliminarEmpleadoRequest">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="id" type="xs:long"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-    
-    <xs:element name="eliminarEmpleadoResponse">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="mensaje" type="xs:string"/>
-                <xs:element name="codigo" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+
 
 </xs:schema>

@@ -5,5 +5,5 @@
 // Generado el: 2025.12.02 a las 11:02:46 PM COT 
 //
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://www.example.com/empleado-ws", elementFormDefault = javax.xml.bind.annotation.XmlNsForm.QUALIFIED)
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://example.com/empleado-ws", elementFormDefault = jakarta.xml.bind.annotation.XmlNsForm.QUALIFIED)
 package com.example.usuariojwt.webservice.Empleado;

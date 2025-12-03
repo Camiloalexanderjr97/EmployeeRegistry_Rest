@@ -1,27 +1,26 @@
 package com.example.usuariojwt.webservice.Empleado;
 
+import jakarta.xml.bind.annotation.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.xml.bind.annotation.*;
 
 @Getter
 @Setter
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = {
+@XmlType(name = "createEmployeeResponse", namespace = "http://example.com/empleado-ws", propOrder = {
     "empleado",
     "mensaje",
     "codigo"
 })
-@XmlRootElement(name = "crearEmpleadoResponse")
+@XmlRootElement(name = "createEmployeeResponse", namespace = "http://example.com/empleado-ws")
 public class CreateEmployeeResponse {
 
-    @XmlElement(required = true)
-    protected EmployeeType empleado;
+    @XmlElement(name = "empleado", namespace = "http://example.com/empleado-ws", required = true)
+    protected Empleado empleado;
     
-    @XmlElement(required = true)
+    @XmlElement(name = "mensaje", namespace = "http://example.com/empleado-ws", required = true)
     protected String mensaje;
     
-    @XmlElement(required = true)
+    @XmlElement(name = "codigo", namespace = "http://example.com/empleado-ws", required = true)
     protected String codigo;
 }
