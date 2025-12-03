@@ -97,13 +97,8 @@ public class EmployeeController {
 
         try {
             // Call SOAP service to save employee in MySQL
-            var soapResponse = empleadoSoapClient.createEmployee(savedEmployee);
 
-            if (!"EXITO".equals(soapResponse.getCodigo())) {
-                // If SOAP service fails, you might want to handle this case
-                // For example, you could log the error or implement a retry mechanism
-                System.err.println("Warning: Employee created but SOAP service returned: " + soapResponse.getMensaje());
-            }
+            empleadoSoapClient.createEmployee(employee);
 
             return new ResponseEntity<>(employeeMapper.toDto(savedEmployee), HttpStatus.CREATED);
 

@@ -8,10 +8,10 @@
 
 package com.example.usuariojwt.webservice.Empleado;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="empleado" type="{http://www.example.com/empleado-ws}empleado"/&gt;
+ *         &lt;element name="empleado" type="{http://example.com/empleado-ws}empleado"/&gt;
  *         &lt;element name="mensaje" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="codigo" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;

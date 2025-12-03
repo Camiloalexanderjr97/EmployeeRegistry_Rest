@@ -1,9 +1,8 @@
 package com.example.usuariojwt.webservice.Empleado;
 
+import jakarta.xml.bind.annotation.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.xml.bind.annotation.*;
 
 @Getter
 @Setter
@@ -11,9 +10,9 @@ import javax.xml.bind.annotation.*;
 @XmlType(name = "", propOrder = {
     "empleado"
 })
-@XmlRootElement(name = "crearEmpleadoRequest", namespace = "http://www.example.com/empleado-ws")
+@XmlRootElement(name = "createEmployeeRequest", namespace = "http://example.com/empleado-ws")
 public class CreateEmployeeRequest {
 
-    @XmlElement(required = true, namespace = "http://www.example.com/empleado-ws")
+    @XmlElement(required = true, namespace = "http://example.com/empleado-ws")
     protected EmployeeType empleado;
 }
