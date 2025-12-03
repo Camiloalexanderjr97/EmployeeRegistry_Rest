@@ -1,9 +1,8 @@
 package com.example.usuariojwt.webservice.Empleado;
 
+import jakarta.xml.bind.annotation.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import jakarta.xml.bind.annotation.*;
 
 @Getter
 @Setter

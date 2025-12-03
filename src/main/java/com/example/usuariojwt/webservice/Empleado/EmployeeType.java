@@ -1,9 +1,9 @@
 package com.example.usuariojwt.webservice.Empleado;
 
+import jakarta.xml.bind.annotation.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import jakarta.xml.bind.annotation.*;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.math.BigDecimal;
 

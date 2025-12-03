@@ -1,8 +1,10 @@
 package com.example.usuariojwt.infrastructure.soap;
 
 import com.example.usuariojwt.domain.model.Empleado;
-import com.example.usuariojwt.webservice.Empleado.*;
-import jakarta.xml.bind.*;
+import com.example.usuariojwt.webservice.Empleado.CreateEmployeeResponse;
+import com.example.usuariojwt.webservice.Empleado.EmployeeRequest;
+import com.example.usuariojwt.webservice.Empleado.ObjectFactory;
+import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.soap.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +18,6 @@ import org.springframework.ws.soap.saaj.SaajSoapMessage;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.ByteArrayOutputStream;
-import java.io.StringWriter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -83,7 +84,6 @@ public class EmpleadoSoapClient {
 
                     soapMsg.saveChanges();
 
-                    logger.info("SOAP Request: {}", soapMessageToString(soapMsg));
 
                 } catch (Exception e) {
                     logger.error("Error creating SOAP message", e);
