@@ -8,7 +8,10 @@
 
 package com.example.usuariojwt.webservice.Empleado;
 
-import javax.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.xml.datatype.XMLGregorianCalendar;
 import java.math.BigDecimal;
 
@@ -29,7 +32,7 @@ import java.math.BigDecimal;
  *         &lt;element name="tipoDocumento" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="numeroDocumento" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="fechaNacimiento" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
- *         &lt;element name="fechaVinculacion" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
+ *         &lt;element name="fechaVinculacionCompania" type="{http://www.w3.org/2001/XMLSchema}date"/&gt;
  *         &lt;element name="cargo" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="salario" type="{http://www.w3.org/2001/XMLSchema}decimal"/&gt;
  *       &lt;/sequence&gt;
@@ -41,253 +44,49 @@ import java.math.BigDecimal;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "empleado", propOrder = {
+@XmlType(name = "empleado", namespace = "http://example.com/empleado-ws", propOrder = {
     "id",
     "nombres",
     "apellidos",
     "tipoDocumento",
     "numeroDocumento",
     "fechaNacimiento",
-    "fechaVinculacion",
+    "fechaVinculacionCompania",
     "cargo",
     "salario"
 })
+@XmlRootElement(name = "empleado", namespace = "http://example.com/empleado-ws")
+@Getter
+@Setter
 public class Empleado {
 
+    @XmlElement(namespace = "http://example.com/empleado-ws")
     protected Long id;
-    @XmlElement(required = true)
+    
+    @XmlElement(namespace = "http://example.com/empleado-ws", required = true)
     protected String nombres;
-    @XmlElement(required = true)
+    
+    @XmlElement(namespace = "http://example.com/empleado-ws", required = true)
     protected String apellidos;
-    @XmlElement(required = true)
+    
+    @XmlElement(name = "tipoDocumento", namespace = "http://example.com/empleado-ws", required = true)
     protected String tipoDocumento;
-    @XmlElement(required = true)
+    
+    @XmlElement(name = "numeroDocumento", namespace = "http://example.com/empleado-ws", required = true)
     protected String numeroDocumento;
-    @XmlElement(required = true)
+    
+    @XmlElement(name = "fechaNacimiento", namespace = "http://example.com/empleado-ws", required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar fechaNacimiento;
-    @XmlElement(required = true)
+    
+    @XmlElement(name = "fechaVinculacionCompania", namespace = "http://example.com/empleado-ws", required = true)
     @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar fechaVinculacion;
-    @XmlElement(required = true)
+    protected XMLGregorianCalendar fechaVinculacionCompania;
+    
+    @XmlElement(namespace = "http://example.com/empleado-ws", required = true)
     protected String cargo;
-    @XmlElement(required = true)
+    
+    @XmlElement(namespace = "http://example.com/empleado-ws", required = true)
     protected BigDecimal salario;
-
-    /**
-     * Obtiene el valor de la propiedad id.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    public Long getId() {
-        return id;
-    }
-
-    /**
-     * Define el valor de la propiedad id.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setId(Long value) {
-        this.id = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad nombres.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getNombres() {
-        return nombres;
-    }
-
-    /**
-     * Define el valor de la propiedad nombres.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setNombres(String value) {
-        this.nombres = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad apellidos.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    /**
-     * Define el valor de la propiedad apellidos.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setApellidos(String value) {
-        this.apellidos = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad tipoDocumento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getTipoDocumento() {
-        return tipoDocumento;
-    }
-
-    /**
-     * Define el valor de la propiedad tipoDocumento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setTipoDocumento(String value) {
-        this.tipoDocumento = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad numeroDocumento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getNumeroDocumento() {
-        return numeroDocumento;
-    }
-
-    /**
-     * Define el valor de la propiedad numeroDocumento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setNumeroDocumento(String value) {
-        this.numeroDocumento = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad fechaNacimiento.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    /**
-     * Define el valor de la propiedad fechaNacimiento.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setFechaNacimiento(XMLGregorianCalendar value) {
-        this.fechaNacimiento = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad fechaVinculacion.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getFechaVinculacion() {
-        return fechaVinculacion;
-    }
-
-    /**
-     * Define el valor de la propiedad fechaVinculacion.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setFechaVinculacion(XMLGregorianCalendar value) {
-        this.fechaVinculacion = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad cargo.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getCargo() {
-        return cargo;
-    }
-
-    /**
-     * Define el valor de la propiedad cargo.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setCargo(String value) {
-        this.cargo = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad salario.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public BigDecimal getSalario() {
-        return salario;
-    }
-
-    /**
-     * Define el valor de la propiedad salario.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigDecimal }
-     *     
-     */
-    public void setSalario(BigDecimal value) {
-        this.salario = value;
-    }
 
 }

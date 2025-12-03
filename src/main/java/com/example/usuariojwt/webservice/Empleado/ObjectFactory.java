@@ -8,9 +8,9 @@
 
 package com.example.usuariojwt.webservice.Empleado;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.XmlElementDecl;
-import javax.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.JAXBElement;
+import jakarta.xml.bind.annotation.XmlElementDecl;
+import jakarta.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
 
 
@@ -31,10 +31,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _CrearEmpleadoRequest_QNAME = new QName("http://www.example.com/empleado-ws", "crearEmpleadoRequest");
-    private final static QName _CrearEmpleadoResponse_QNAME = new QName("http://www.example.com/empleado-ws", "crearEmpleadoResponse");
-    private final static QName _ActualizarEmpleadoRequest_QNAME = new QName("http://www.example.com/empleado-ws", "actualizarEmpleadoRequest");
-    private final static QName _ActualizarEmpleadoResponse_QNAME = new QName("http://www.example.com/empleado-ws", "actualizarEmpleadoResponse");
+    private final static QName _CreateEmployeeRequest_QNAME = new QName("http://example.com/empleado-ws", "createEmployeeRequest");
+    private final static QName _CreateEmployeeResponse_QNAME = new QName("http://example.com/empleado-ws", "createEmployeeResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.example.usuariojwt.webservice.empleado
@@ -91,9 +89,22 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link EmployeeRequest }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.example.com/empleado-ws", name = "crearEmpleadoRequest")
-    public JAXBElement<EmployeeRequest> createCrearEmpleadoRequest(EmployeeRequest value) {
-        return new JAXBElement<EmployeeRequest>(_CrearEmpleadoRequest_QNAME, EmployeeRequest.class, null, value);
+    @XmlElementDecl(namespace = "http://example.com/empleado-ws", name = "createEmployeeRequest")
+    public JAXBElement<EmployeeRequest> createCreateEmployeeRequest(EmployeeRequest value) {
+        return new JAXBElement<EmployeeRequest>(_CreateEmployeeRequest_QNAME, EmployeeRequest.class, null, value);
+    }
+    
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CreateEmployeeResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CreateEmployeeResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://example.com/empleado-ws", name = "createEmployeeResponse")
+    public JAXBElement<CreateEmployeeResponse> createCreateEmployeeResponse(CreateEmployeeResponse value) {
+        return new JAXBElement<CreateEmployeeResponse>(_CreateEmployeeResponse_QNAME, CreateEmployeeResponse.class, null, value);
     }
 
     /**
@@ -104,35 +115,6 @@ public class ObjectFactory {
      * @return
      *     the new instance of {@link JAXBElement }{@code <}{@link EmployeeResponse }{@code >}
      */
-    @XmlElementDecl(namespace = "http://www.example.com/empleado-ws", name = "crearEmpleadoResponse")
-    public JAXBElement<EmployeeResponse> createCrearEmpleadoResponse(EmployeeResponse value) {
-        return new JAXBElement<EmployeeResponse>(_CrearEmpleadoResponse_QNAME, EmployeeResponse.class, null, value);
-    }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EmployeeRequest }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EmployeeRequest }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://www.example.com/empleado-ws", name = "actualizarEmpleadoRequest")
-    public JAXBElement<EmployeeRequest> createActualizarEmpleadoRequest(EmployeeRequest value) {
-        return new JAXBElement<EmployeeRequest>(_ActualizarEmpleadoRequest_QNAME, EmployeeRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link EmployeeResponse }{@code >}
-     * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link EmployeeResponse }{@code >}
-     */
-    @XmlElementDecl(namespace = "http://www.example.com/empleado-ws", name = "actualizarEmpleadoResponse")
-    public JAXBElement<EmployeeResponse> createActualizarEmpleadoResponse(EmployeeResponse value) {
-        return new JAXBElement<EmployeeResponse>(_ActualizarEmpleadoResponse_QNAME, EmployeeResponse.class, null, value);
-    }
 
 }

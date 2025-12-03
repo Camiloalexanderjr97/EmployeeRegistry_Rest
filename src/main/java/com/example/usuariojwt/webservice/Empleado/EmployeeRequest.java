@@ -8,10 +8,9 @@
 
 package com.example.usuariojwt.webservice.Empleado;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.*;
+import lombok.Getter;
+import lombok.Setter;
 
 
 /**
@@ -24,7 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="empleado" type="{http://www.example.com/empleado-ws}empleado"/&gt;
+ *         &lt;element name="empleado" type="{http://example.com/empleado-ws}empleado"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -34,34 +33,19 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "empleadoRequest", propOrder = {
+@XmlType(name = "employeeRequest", namespace = "http://example.com/empleado-ws", propOrder = {
     "empleado"
 })
+@XmlRootElement(name = "createEmployeeRequest", namespace = "http://example.com/empleado-ws")
 public class EmployeeRequest {
 
-    @XmlElement(required = true)
+    @XmlElement(required = true, namespace = "http://example.com/empleado-ws")
     protected Empleado empleado;
 
-    /**
-     * Obtiene el valor de la propiedad empleado.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Empleado }
-     *     
-     */
     public Empleado getEmpleado() {
         return empleado;
     }
-
-    /**
-     * Define el valor de la propiedad empleado.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Empleado }
-     *     
-     */
+    
     public void setEmpleado(Empleado value) {
         this.empleado = value;
     }

@@ -3,7 +3,7 @@ package com.example.usuariojwt.webservice.Empleado;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.*;
 
 @Getter
 @Setter
@@ -13,7 +13,6 @@ import javax.xml.bind.annotation.*;
     "mensaje",
     "codigo"
 })
-@XmlRootElement(name = "actualizarEmpleadoResponse")
 public class UpdateEmployeeResponse {
 
     @XmlElement(required = true)
