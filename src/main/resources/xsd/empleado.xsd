@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.example.com/empleado-ws"
+           targetNamespace="http://www.example.com/empleado-ws"
+           elementFormDefault="qualified">
+
+    <!-- Definición de tipos complejos -->
+    <xs:complexType name="empleado">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="nombres" type="xs:string"/>
+            <xs:element name="apellidos" type="xs:string"/>
+            <xs:element name="tipoDocumento" type="xs:string"/>
+            <xs:element name="numeroDocumento" type="xs:string"/>
+            <xs:element name="fechaNacimiento" type="xs:date"/>
+            <xs:element name="fechaVinculacion" type="xs:date"/>
+            <xs:element name="cargo" type="xs:string"/>
+            <xs:element name="salario" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="empleadoRequest">
+        <xs:sequence>
+            <xs:element name="empleado" type="tns:empleado"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="empleadoResponse">
+        <xs:sequence>
+            <xs:element name="empleado" type="tns:empleado"/>
+            <xs:element name="mensaje" type="xs:string"/>
+            <xs:element name="codigo" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Definición de elementos raíz -->
+    <xs:element name="crearEmpleadoRequest" type="tns:empleadoRequest"/>
+    <xs:element name="crearEmpleadoResponse" type="tns:empleadoResponse"/>
+    
+    <xs:element name="actualizarEmpleadoRequest" type="tns:empleadoRequest"/>
+    <xs:element name="actualizarEmpleadoResponse" type="tns:empleadoResponse"/>
+    
+    <xs:element name="eliminarEmpleadoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:long"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="eliminarEmpleadoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="mensaje" type="xs:string"/>
+                <xs:element name="codigo" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
