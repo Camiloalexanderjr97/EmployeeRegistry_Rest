@@ -8,7 +8,7 @@ Todas las modificaciones realizadas en este archivo se perderán si se vuelve a 
 Generado el: 2025.12.02 a las 10:58:20 PM COT 
 
   -->
-  <bindings scd="x-schema::tns" xmlns:tns="http://www.example.com/empleado-ws">
+  <bindings scd="x-schema::tns" xmlns:tns="http://example.com/empleado-ws">
     <schemaBindings map="false">
       <package name="com.example.usuariojwt.webservice.empleado"/>
     </schemaBindings>

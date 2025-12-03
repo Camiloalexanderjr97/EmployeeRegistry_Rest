@@ -8,7 +8,7 @@
 
 package com.example.usuariojwt.webservice.Empleado;
 
-import javax.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.*;
 
 
 /**
